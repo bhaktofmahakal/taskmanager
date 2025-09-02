@@ -23,9 +23,10 @@ app.use(helmet());
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
     ? [
+        'https://task-manager-frontend-dusibhu95-utsavs-projects-5c4e1539.vercel.app',
+        'https://task-manager-frontend-2x72078z6-utsavs-projects-5c4e1539.vercel.app',
         'https://task-manager-app.vercel.app',
-        'https://task-manager-frontend.vercel.app', 
-        'https://*.vercel.app',
+        'https://task-manager-frontend.vercel.app',
         process.env.FRONTEND_URL
       ].filter(Boolean)
     : [
@@ -35,8 +36,8 @@ app.use(cors({
         'http://127.0.0.1:3000'
       ],
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 
 // Rate limiting
@@ -64,6 +65,9 @@ const authLimiter = rateLimit({
 
 app.use('/api/auth/login', authLimiter);
 app.use('/api/auth/register', authLimiter);
+
+// Handle preflight OPTIONS requests
+app.options('*', cors());
 
 // Body parser middleware
 app.use(express.json({ limit: '10mb' }));
