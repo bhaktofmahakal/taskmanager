@@ -4,7 +4,7 @@ A modern, responsive task management application built with React and Node.js. E
 
 ## 🌐 Live Demo
 
-**🔗 Application**: https://task-manager-frontend-2x72078z6-utsavs-projects-5c4e1539.vercel.app  
+**🔗 Application**: https://task-manager-frontend-wine-eight.vercel.app/
 **🔗 API**: https://taskmanager-39ib.onrender.com  
 **🔗 GitHub**: https://github.com/bhaktofmahakal/taskmanager
 
