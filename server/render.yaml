@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: task-manager-api
+    runtime: node
+    plan: free
+    region: oregon  
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        value: mongodb+srv://vexocore:ToprVlwmtkl8ZrKA@vexocore.lmajm6l.mongodb.net/taskmanager
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 10000

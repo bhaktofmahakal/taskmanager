@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "name": "task-manager-frontend",
+  "framework": "create-react-app",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "env": {
+    "REACT_APP_API_URL": "https://task-manager-api.onrender.com"
+  }
+}
