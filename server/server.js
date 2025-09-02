@@ -23,6 +23,7 @@ app.use(helmet());
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
     ? [
+        'https://task-manager-frontend-wine-eight.vercel.app',
         'https://task-manager-frontend-dusibhu95-utsavs-projects-5c4e1539.vercel.app',
         'https://task-manager-frontend-2x72078z6-utsavs-projects-5c4e1539.vercel.app',
         'https://task-manager-app.vercel.app',
