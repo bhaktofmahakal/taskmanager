@@ -1,8 +1,0 @@
-../server
-../tests
-../node_modules
-../.env
-../package.json
-../package-lock.json
-../render.yaml
-../playwright.config.js

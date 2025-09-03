@@ -55,8 +55,7 @@ const authLimiter = rateLimit({
   }
 });
 
-app.use('/api/auth/login', authLimiter);
-app.use('/api/auth/register', authLimiter);
+// Rate limiting will be applied within individual routes
 
 // Debug middleware to log all requests
 app.use((req, res, next) => {

@@ -1,14 +1,25 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
+const rateLimit = require('express-rate-limit');
 const User = require('../models/User');
 const { generateToken, protect } = require('../middleware/auth');
+
+// Auth-specific rate limiting
+const authLimiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute for testing
+  max: 20, // increased limit for testing
+  message: {
+    success: false,
+    message: 'Too many authentication attempts, please try again later.'
+  }
+});
 
 const router = express.Router();
 
 // @desc    Register user
 // @route   POST /api/auth/register
 // @access  Public
-router.post('/register', [
+router.post('/register', authLimiter, [
   body('name')
     .trim()
     .isLength({ min: 2, max: 50 })
@@ -98,7 +109,7 @@ router.post('/register', [
 // @desc    Login user
 // @route   POST /api/auth/login
 // @access  Public
-router.post('/login', [
+router.post('/login', authLimiter, [
   body('email')
     .isEmail()
     .normalizeEmail()
