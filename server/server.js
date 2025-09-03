@@ -19,24 +19,14 @@ const app = express();
 // Security middleware
 app.use(helmet());
 
-// CORS middleware - Allow all Vercel domains for now
+// CORS middleware - Very permissive for now
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (mobile apps, curl, etc.)
-    if (!origin) return callback(null, true);
-    
-    // Allow all Vercel domains
-    if (origin.includes('vercel.app') || origin.includes('localhost')) {
-      return callback(null, true);
-    }
-    
-    console.log('🔒 CORS blocked origin:', origin);
-    callback(new Error('Not allowed by CORS'));
-  },
-  credentials: true,
+  origin: '*', // Allow all origins temporarily
+  credentials: false, // Set to false when using origin: '*'
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
-  optionsSuccessStatus: 200
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 }));
 
 // Rate limiting

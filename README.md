@@ -1,25 +1,25 @@
-# 🚀 Task Manager - Full-Stack Web Application
+# Task Manager - Full-Stack Web Application
 
 A modern, responsive task management application built with React and Node.js. Experience seamless task organization with real-time updates and intuitive design.
 
-## 🌐 Live Demo
+## Live Demo
 
-**🔗 Application**: https://task-manager-frontend-wine-eight.vercel.app/
-**🔗 API**: https://taskmanager-39ib.onrender.com  
-**🔗 GitHub**: https://github.com/bhaktofmahakal/taskmanager
+**Application**: https://task-manager-frontend-wine-eight.vercel.app/
+**API**: https://taskmanager-39ib.onrender.com  
+**GitHub**: https://github.com/bhaktofmahakal/taskmanager
 
-## ✨ Features
+## Features
 
-- **🔐 Authentication**: JWT-based user registration and login with secure password hashing
-- **📝 Task Management**: Create, edit, delete, and toggle task status with ease
-- **🔍 Advanced Filtering**: Filter tasks by status, priority, and search functionality
-- **📱 Responsive Design**: Optimized for desktop, tablet, and mobile devices
-- **⚡ Real-time Updates**: Instant UI updates after operations
-- **📊 Dashboard Analytics**: Visual statistics and task overview
-- **🎨 Modern UI**: Clean, intuitive interface built with Tailwind CSS
-- **🔒 Secure**: Protected routes, input validation, and CORS security
+- **Authentication**: JWT-based user registration and login with secure password hashing
+- **Task Management**: Create, edit, delete, and toggle task status with ease
+- **Advanced Filtering**: Filter tasks by status, priority, and search functionality
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+- **Real-time Updates**: Instant UI updates after operations
+- **Dashboard Analytics**: Visual statistics and task overview
+- **Modern UI**: Clean, intuitive interface built with Tailwind CSS
+- **Secure**: Protected routes, input validation, and CORS security
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - **React 18** - Modern UI library with hooks
@@ -42,7 +42,7 @@ A modern, responsive task management application built with React and Node.js. E
 - **GitHub** - Version control and collaboration
 - **Playwright** - End-to-end testing framework
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Node.js (v14 or higher)
@@ -65,7 +65,7 @@ A modern, responsive task management application built with React and Node.js. E
    - Frontend: http://localhost:3001
    - Backend API: http://localhost:5000
 
-## 🔧 Manual Setup
+## Manual Setup
 
 If the quick start doesn't work, you can start servers manually:
 
@@ -83,7 +83,7 @@ npm install
 npm start
 ```
 
-## 🎯 Demo Credentials
+## Demo Credentials
 
 For testing the live application, you can use these demo accounts:
 
@@ -99,14 +99,14 @@ Password: password123
 
 **Or create your own account** - registration is quick and easy!
 
-## 🧪 Testing
+## Testing
 
 Run E2E tests with Playwright:
 ```bash
 npm test
 ```
 
-## 📱 How to Use
+## How to Use
 
 1. **Register**: Create a new account or use demo credentials
 2. **Login**: Access your personal dashboard
@@ -114,14 +114,14 @@ npm test
 4. **Manage Tasks**: Edit, complete, or delete tasks
 5. **Filter & Search**: Find tasks quickly with built-in filters
 
-## 🌐 Deployment
+## Deployment
 
 This application is **already deployed and live**! But if you want to deploy your own version:
 
 ### Live Deployment URLs
-- **🌍 Frontend**: https://task-manager-frontend-2x72078z6-utsavs-projects-5c4e1539.vercel.app
-- **🌍 Backend API**: https://taskmanager-39ib.onrender.com
-- **📊 Health Check**: https://taskmanager-39ib.onrender.com/api/health
+- **Frontend**: https://task-manager-frontend-wine-eight.vercel.app
+- **Backend API**: https://taskmanager-39ib.onrender.com
+- **Health Check**: https://taskmanager-39ib.onrender.com/api/health
 
 ### Environment Variables
 
@@ -162,7 +162,7 @@ vercel --prod
 6. Start Command: `npm start`
 7. Add environment variables from above
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ├── client/                 # React frontend
@@ -182,7 +182,7 @@ vercel --prod
 └── tests/                  # E2E tests
 ```
 
-## 🔒 Security Features
+## Security Features
 
 - JWT token authentication
 - Password hashing with bcrypt
@@ -190,7 +190,7 @@ vercel --prod
 - CORS protection
 - Input validation and sanitization
 
-## 📋 API Endpoints
+## API Endpoints
 
 Base URL: `https://taskmanager-39ib.onrender.com/api`
 
@@ -209,36 +209,36 @@ Base URL: `https://taskmanager-39ib.onrender.com/api`
 ### Health Check
 - `GET /api/health` - Server health status
 
-## 🎨 Screenshots & Features
+## Screenshots & Features
 
-### 🔐 Authentication
+### Authentication
 - Secure login and registration system
 - JWT-based session management
 - Password strength validation
 
-### 📊 Dashboard
+### Dashboard
 - Task statistics and analytics
 - Visual progress indicators
 - Quick action buttons
 
-### 📝 Task Management
+### Task Management
 - Create tasks with due dates and priorities
 - Edit tasks inline
 - Drag-and-drop functionality (coming soon)
 
-### 🔍 Advanced Filtering
+### Advanced Filtering
 - Filter by status (All, Pending, Completed)
 - Search by task title/description
 - Sort by priority and due date
 
-## 🚀 Performance Features
+## Performance Features
 
-- ⚡ **Fast Loading**: Optimized build with code splitting
-- 📱 **Mobile First**: Responsive design for all devices  
-- 🔄 **Offline Support**: Service worker for offline functionality (coming soon)
-- 🎯 **SEO Optimized**: Meta tags and structured data
+- **Fast Loading**: Optimized build with code splitting
+- **Mobile First**: Responsive design for all devices  
+- **Offline Support**: Service worker for offline functionality (coming soon)
+- **SEO Optimized**: Meta tags and structured data
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Here's how you can help:
 
@@ -256,19 +256,19 @@ We welcome contributions! Here's how you can help:
 - Add tests for new features
 - Update documentation as needed
 
-## 🐛 Bug Reports & Feature Requests
+## Bug Reports & Feature Requests
 
 Found a bug or have an idea? We'd love to hear from you!
 
-- **🐛 Bug Reports**: [Create an Issue](https://github.com/bhaktofmahakal/taskmanager/issues)
-- **💡 Feature Requests**: [Start a Discussion](https://github.com/bhaktofmahakal/taskmanager/discussions)
-- **📧 Contact**: Open an issue for any questions
+- **Bug Reports**: [Create an Issue](https://github.com/bhaktofmahakal/taskmanager/issues)
+- **Feature Requests**: [Start a Discussion](https://github.com/bhaktofmahakal/taskmanager/discussions)
+- **Contact**: Open an issue for any questions
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **React Team** for the amazing library
 - **Tailwind CSS** for the utility-first CSS framework
@@ -279,9 +279,9 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <div align="center">
   
-**🚀 Built with ❤️ using React, Node.js, and modern web technologies**
+**Built with React, Node.js, and modern web technologies**
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge)](https://task-manager-frontend-2x72078z6-utsavs-projects-5c4e1539.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge)](https://task-manager-frontend-wine-eight.vercel.app)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=for-the-badge)](https://github.com/bhaktofmahakal/taskmanager)
 [![API](https://img.shields.io/badge/API-Live-orange?style=for-the-badge)](https://taskmanager-39ib.onrender.com)
 
