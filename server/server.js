@@ -21,12 +21,12 @@ const requiredEnvVars = ['MONGODB_URI', 'JWT_SECRET'];
 const missingEnvVars = requiredEnvVars.filter(envVar => !process.env[envVar]);
 
 if (missingEnvVars.length > 0) {
-  console.error('❌ MISSING ENVIRONMENT VARIABLES:', missingEnvVars);
+  console.error('MISSING ENVIRONMENT VARIABLES:', missingEnvVars);
   console.error('Server cannot start without these variables.');
   process.exit(1);
 }
 
-console.log('✅ All required environment variables are present');
+console.log('All required environment variables are present');
 
 // Security middleware - Disable for testing
 // app.use(helmet());
