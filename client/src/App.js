@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './contexts/AuthContext';
 import { TaskProvider } from './contexts/TaskContext';
 import ProtectedRoute from './components/common/ProtectedRoute';
+import ErrorBoundary from './components/common/ErrorBoundary';
 import Layout from './components/layout/Layout';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -13,10 +14,11 @@ import Profile from './pages/Profile';
 
 function App() {
   return (
-    <AuthProvider>
-      <TaskProvider>
-        <Router>
-          <div className="min-h-screen bg-gray-50">
+    <ErrorBoundary>
+      <AuthProvider>
+        <TaskProvider>
+          <Router>
+            <div className="min-h-screen bg-gray-50">
             <Routes>
               {/* Public routes */}
               <Route path="/login" element={<Login />} />
@@ -64,10 +66,11 @@ function App() {
                 },
               }}
             />
-          </div>
-        </Router>
-      </TaskProvider>
-    </AuthProvider>
+            </div>
+          </Router>
+        </TaskProvider>
+      </AuthProvider>
+    </ErrorBoundary>
   );
 }
 
