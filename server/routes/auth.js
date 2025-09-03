@@ -22,9 +22,14 @@ router.post('/register', [
     .withMessage('Password must be at least 6 characters')
 ], async (req, res) => {
   try {
+    console.log('=== REGISTRATION REQUEST ===');
+    console.log('Request body:', JSON.stringify(req.body, null, 2));
+    console.log('Request headers:', JSON.stringify(req.headers, null, 2));
+    
     // Check for validation errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.log('Validation errors:', errors.array());
       return res.status(400).json({
         success: false,
         message: 'Validation failed',
@@ -33,10 +38,13 @@ router.post('/register', [
     }
 
     const { name, email, password } = req.body;
+    console.log('Extracted data:', { name, email, password: password ? '[REDACTED]' : 'MISSING' });
 
     // Check if user exists
+    console.log('Checking if user exists with email:', email);
     const existingUser = await User.findOne({ email });
     if (existingUser) {
+      console.log('User already exists');
       return res.status(400).json({
         success: false,
         message: 'User already exists with this email'
@@ -44,16 +52,20 @@ router.post('/register', [
     }
 
     // Create user
+    console.log('Creating new user...');
     const user = await User.create({
       name,
       email,
       password
     });
+    console.log('User created successfully:', user._id);
 
     // Generate token
+    console.log('Generating JWT token...');
     const token = generateToken(user._id);
+    console.log('Token generated successfully');
 
-    res.status(201).json({
+    const response = {
       success: true,
       message: 'User registered successfully',
       token,
@@ -63,13 +75,22 @@ router.post('/register', [
         email: user.email,
         initials: user.getInitials()
       }
-    });
+    };
+
+    console.log('Sending response:', JSON.stringify(response, null, 2));
+    res.status(201).json(response);
 
   } catch (error) {
-    console.error('Register error:', error);
+    console.error('=== REGISTRATION ERROR ===');
+    console.error('Error type:', error.constructor.name);
+    console.error('Error message:', error.message);
+    console.error('Error stack:', error.stack);
+    console.error('=========================');
+    
     res.status(500).json({
       success: false,
-      message: 'Server error during registration'
+      message: 'Server error during registration',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 });
