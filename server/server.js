@@ -16,18 +16,21 @@ connectDB();
 
 const app = express();
 
-// Security middleware
-app.use(helmet());
+// Security middleware - Disable for testing
+// app.use(helmet());
 
-// CORS middleware - Very permissive for now
-app.use(cors({
-  origin: '*', // Allow all origins temporarily
-  credentials: false, // Set to false when using origin: '*'
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
-  preflightContinue: false,
-  optionsSuccessStatus: 204
-}));
+// Simple CORS middleware - Handle manually
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+  next();
+});
 
 // Rate limiting
 const limiter = rateLimit({
@@ -57,12 +60,9 @@ app.use('/api/auth/register', authLimiter);
 
 // Debug middleware to log all requests
 app.use((req, res, next) => {
-  console.log(`📡 ${req.method} ${req.path} - Origin: ${req.get('Origin') || 'No Origin'}`);
+  console.log(`${req.method} ${req.path} - Origin: ${req.get('Origin') || 'No Origin'}`);
   next();
 });
-
-// Handle preflight OPTIONS requests
-app.options('*', cors());
 
 // Body parser middleware
 app.use(express.json({ limit: '10mb' }));
@@ -110,9 +110,9 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => {
-  console.log(`🚀 Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
-  console.log(`🔗 FRONTEND_URL: ${process.env.FRONTEND_URL || 'Not set'}`);
-  console.log(`🌐 CORS: Allowing all Vercel domains and localhost`);
+  console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+  console.log(`FRONTEND_URL: ${process.env.FRONTEND_URL || 'Not set'}`);
+  console.log(`CORS: Allowing all origins with manual headers`);
 });
 
 // Handle unhandled promise rejections
